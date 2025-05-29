@@ -1,4 +1,3 @@
-from audioop import lin2alaw
 import requests
 
 url = "https://restcountries.com/v3.1/all"
@@ -24,8 +23,9 @@ if response.status_code == 200:
     videja_populacija = kop_populacija / kop_skaits
     print(f"Vidējais iedzīvotāju skaits ir {videja_populacija:.0f}")
 
-    lielaka_populacija = valstis["population"] = max
-    valsts_lielaka = lielaka_populacija.get("name",{}).get("common","Nezināms")
-    print(f"Lielākais iedzīvotāju skaits ir valstī {valsts_lielaka}.")
+    valsts_ar_lielako_populaciju = max(dati, key=lambda x: x.get("population", 0))
+    valsts_lielaka = valsts_ar_lielako_populaciju.get("name", {}).get("common", "Nezināms")
+    populacija = valsts_ar_lielako_populaciju.get("population", 0)
+    print(f"Lielākais iedzīvotāju skaits ({populacija}) ir valstī {valsts_lielaka}.")
 
     
