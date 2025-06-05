@@ -28,4 +28,7 @@ if response.status_code == 200:
     populacija = valsts_ar_lielako_populaciju.get("population", 0)
     print(f"Lielākais iedzīvotāju skaits ({populacija}) ir valstī {valsts_lielaka}.")
 
+    kop_zeme = sum(valstis["area"] for valstis in dati)
+    print(f"Valstu kopējā platība ir {kop_zeme:.2f}.")
+
     
