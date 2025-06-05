@@ -24,8 +24,8 @@ with open("agenti.csv", mode="r", encoding="utf-8") as file:
 
 print("\nRīgas iestādes:\n")
 
-with open("agenti.csv", mode="r", encoding="utf-8") as file:
-    csv_reader = csv.DictReader(file)
+with open("agenti.csv", mode="r", newline="", encoding="utf-8") as file:
+    csv_reader = csv.reader(file)
     for rinda in csv_reader:
         if len(rinda) >= 3:
             nosaukums = rinda[1]
@@ -35,4 +35,9 @@ with open("agenti.csv", mode="r", encoding="utf-8") as file:
                 adrese = ', '.join(adrese_dalas)
                 print(f"{nosaukums} - {adrese}")
 
-    
+with open("agenti.csv", mode="r", encoding="utf-8") as file:
+    csv_reader = csv.DictReader(file)
+    print("\nSakārtots:\n")
+    for row in csv_reader:
+        sakartots = sorted(csv_reader, key= lambda row :  row["NOSAUKUMS"])
+    print(sakartots)
