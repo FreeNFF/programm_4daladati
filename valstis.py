@@ -31,4 +31,12 @@ if response.status_code == 200:
     kop_zeme = sum(valstis["area"] for valstis in dati)
     print(f"Valstu kopējā platība ir {kop_zeme:.2f}.")
 
+    for valstis in dati:
+        if valstis.get("name",{}).get("common","Nezināms") == "Latvia":
+            print("Latvija pieder pie šada apakšreģiona:")
+            print(valstis.get("subregion"))
     
+    for valstis in dati:
+        if valstis.get("name",{}).get("common","Nezināms") == "Latvia":
+            print("Latvija robežojas ar šādām valstīm:")
+            print(valstis.get("borders"))
