@@ -42,7 +42,7 @@ while True:
     pilseta = input("Ievadiet pilsēts nosaukumu: ")
     
     while True:
-      if pilseta[0].isupper() and pilseta.isalpha() and " " not in pilseta:
+      if pilseta[0].isupper() and pilseta.isalpha() and " " not in pilseta and "," not in pilseta:
         vardi.append(pilseta)
         break
         
