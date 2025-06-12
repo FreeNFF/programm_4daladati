@@ -42,13 +42,13 @@ while True:
     pilseta = input("Ievadiet pilsēts nosaukumu: ")
     
     while True:
-      if pilseta[0].isupper() and pilseta.isalpha():
+      if pilseta[0].isupper() and pilseta.isalpha() and " " not in pilseta:
         vardi.append(pilseta)
         break
         
       else:
         pilseta = input(
-            "Nepareiza ievade. Pilsētas nosaukumam jāsākas ar lielo burtu un satur tikai burtus.\nIevadiet pilsētas nosaukumu:"
+            "Nepareiza ievade. Pilsētas nosaukumam jāsākas ar lielo burtu, satur tikai burtus un vairāk nekā viens vārds.\nIevadiet pilsētas nosaukumu:"
         )
 
   else:
